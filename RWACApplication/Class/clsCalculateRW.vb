@@ -4,7 +4,7 @@ Imports System.Web.UI
 Imports System.Web.UI.WebControls
 Imports System.Web.UI.HtmlControls
 
-Public Class clsMasterInquiry
+Public Class clsCalculateRW
     Public Overloads Shared Function getMasterInquiry(ByVal aod As String) As DataSet
         Dim ds As New DataSet
         Dim cmd As String
