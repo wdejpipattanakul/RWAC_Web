@@ -56,9 +56,11 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transaction Manager
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="font-size:12px">
-                                <li><a runat="server" href="#">Classification Manager</a></li>
-                                <li><a runat="server" href="#">Transaction Management</a></li>
-                                <li><a runat="server" href="#">CRM Management</a></li>
+                                <li><a runat="server" href="~/Page/CreditExposureInquiry">Classification Manager1</a></li>
+                                <li><a runat="server" href="~/Page/CreditRiskInquiry">Classification Manager2</a></li>
+                                <li><a runat="server" href="~/Page/RWDebtCalculation">Transaction Management</a></li>
+                                <li><a runat="server" href="~/Page/CRMInquiry">CRM Management1</a></li>
+                                <li><a runat="server" href="~/Page/RWCRMCalculation">CRM Management2</a></li>
                             </ul>
                         </li>
                         <li><a runat="server" href="~/Page/CalculateRW">Calculate RWA</a></li>
