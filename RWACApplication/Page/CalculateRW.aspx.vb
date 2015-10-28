@@ -9,7 +9,7 @@
 
     Protected Sub BindData()
         Dim ds As DataSet
-        ds = clsCRSReportInquiry.getCRSMain("30/09/2015")
+        ds = clsCalculateRW.getTransaction("30/09/2015")
         grdTran.DataSource = ds
         grdTran.DataBind()
     End Sub
