@@ -5,8 +5,6 @@
 <head runat="server">
     <meta charset="utf-8" />     
     <title><%: Page.Title %> - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" /> 
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" /> 
     <asp:PlaceHolder runat="server">        
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link href="~/Content/Site.css" rel="stylesheet" /> 
