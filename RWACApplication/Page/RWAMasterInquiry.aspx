@@ -8,7 +8,7 @@
                 <asp:BoundField DataField="Cust_ID" HeaderText="CustomerID" ReadOnly="True" SortExpression="Cust_ID" ItemStyle-CssClass="hidden-xs" HeaderStyle-CssClass="hidden-xs" >  
                 </asp:BoundField>
                 <asp:BoundField DataField="Cust_Name" HeaderText="CustomerName" SortExpression="Cust_Name" HeaderStyle-CssClass="visible-lg" ItemStyle-CssClass="visible-lg" >  
-                </asp:BoundField>
+                </asp:BoundField> 
                 <asp:BoundField DataField="Contract_ID" HeaderText="ContractID" SortExpression="Contract_ID" />  
                 <asp:BoundField DataField="Facility_ID" HeaderText="FacilityID" SortExpression="Facility_ID" HeaderStyle-CssClass="hidden-md" ItemStyle-CssClass="hidden-md" >  
                 </asp:BoundField>

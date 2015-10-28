@@ -208,6 +208,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="frmIframe.html" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -226,6 +227,7 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Page\CRSReportInquiry.aspx" />
+    <Content Include="Page\RWAReportInquiry.aspx" />
     <Content Include="Page\RWAMasterInquiry.aspx" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -324,6 +326,7 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class\clsCRSReportInquiry.vb" />
+    <Compile Include="Class\clsRWAReportInquiry.vb" />
     <Compile Include="Class\clsMasterInquiry.vb" />
     <Compile Include="Class\clsUtility.vb" />
     <Compile Include="Connection\SQLConnect.vb" />
@@ -368,6 +371,13 @@
     </Compile>
     <Compile Include="Page\CRSReportInquiry.aspx.vb">
       <DependentUpon>CRSReportInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Page\RWAReportInquiry.aspx.designer.vb">
+      <DependentUpon>RWAReportInquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\RWAReportInquiry.aspx.vb">
+      <DependentUpon>RWAReportInquiry.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Page\RWAMasterInquiry.aspx.designer.vb">

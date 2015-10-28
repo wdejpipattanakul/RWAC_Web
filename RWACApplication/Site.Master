@@ -61,14 +61,14 @@
                                 <li><a runat="server" href="#">CRM Management</a></li>
                             </ul>
                         </li>
-                        <li><a runat="server" href="~/Page/RWAMasterInquiry">Calculate RWA</a></li>
+                        <li><a runat="server" href="#">Calculate RWA</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="font-size:12px">
                                 <li><a runat="server" href="~/Page/RWAMasterInquiry">RWA Master Inquiry</a></li>
                                 <li><a runat="server" href="~/Page/CRSReportInquiry">CRS Report</a></li>
-                                <li><a runat="server" href="#">RWA Report</a></li>
+                                <li><a runat="server" href="~/Page/RWAReportInquiry">RWA Report</a></li>
                             </ul>
                         </li>                       
                     </ul>
