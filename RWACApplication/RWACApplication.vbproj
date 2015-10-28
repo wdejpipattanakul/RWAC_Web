@@ -230,6 +230,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="Page\CalculateRW.aspx" />
     <Content Include="Page\CRSReportInquiry.aspx" />
     <Content Include="Page\RWAReportInquiry.aspx" />
     <Content Include="Page\RWAMasterInquiry.aspx" />
@@ -336,6 +337,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Class\clsCRSReportInquiry.vb" />
+    <Compile Include="Class\CalculateRW.vb" />
     <Compile Include="Class\clsRWAReportInquiry.vb" />
     <Compile Include="Class\clsMasterInquiry.vb" />
     <Compile Include="Class\clsUtility.vb" />
@@ -387,6 +389,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Page\CalculateRW.aspx.designer.vb">
+      <DependentUpon>CalculateRW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CalculateRW.aspx.vb">
+      <DependentUpon>CalculateRW.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Page\CRSReportInquiry.aspx.designer.vb">
       <DependentUpon>CRSReportInquiry.aspx</DependentUpon>

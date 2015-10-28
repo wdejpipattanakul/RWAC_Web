@@ -11,7 +11,7 @@
                 </asp:BoundField> 
                 <asp:BoundField DataField="BOT credit risk type code" HeaderText="CreditRiskType" SortExpression="BOT credit risk type code" HeaderStyle-CssClass="visible-lg" ItemStyle-CssClass="visible-lg" >  
                 </asp:BoundField> 
-                <asp:BoundField DataField="EBOT credit risk item code" HeaderText="CreditRiskItem" SortExpression="BOT credit risk item code" HeaderStyle-CssClass="visible-lg" ItemStyle-CssClass="visible-lg" >  
+                <asp:BoundField DataField="BOT credit risk item code" HeaderText="CreditRiskItem" SortExpression="BOT credit risk item code" HeaderStyle-CssClass="visible-lg" ItemStyle-CssClass="visible-lg" >  
                 </asp:BoundField> 
                 <asp:BoundField DataField="Contract_ID" HeaderText="ContractID" SortExpression="Contract_ID" />  
                 <asp:BoundField DataField="Facility_ID" HeaderText="FacilityID" SortExpression="Facility_ID" HeaderStyle-CssClass="hidden-md" ItemStyle-CssClass="hidden-md" >  
