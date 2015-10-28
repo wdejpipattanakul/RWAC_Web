@@ -149,6 +149,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="CalculateRWA.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -207,6 +208,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Credit_Exposure_Inquiry.aspx" />
+    <Content Include="Credit_Risk_Inquiry.aspx" />
+    <Content Include="CRM_Inquiry.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmIframe.html" />
     <Content Include="Images\accent.png" />
@@ -229,6 +233,8 @@
     <Content Include="Page\CRSReportInquiry.aspx" />
     <Content Include="Page\RWAReportInquiry.aspx" />
     <Content Include="Page\RWAMasterInquiry.aspx" />
+    <Content Include="RW Debt Calculation.aspx" />
+    <Content Include="RW_CRM_Calculation.aspx" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -325,6 +331,10 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.vb">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CalculateRWA.aspx.vb">
+      <DependentUpon>CalculateRWA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Class\clsCRSReportInquiry.vb" />
     <Compile Include="Class\clsRWAReportInquiry.vb" />
     <Compile Include="Class\clsMasterInquiry.vb" />
@@ -336,6 +346,18 @@
     <Compile Include="Contact.aspx.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Credit_Exposure_Inquiry.aspx.vb">
+      <DependentUpon>Credit_Exposure_Inquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Credit_Risk_Inquiry.aspx.vb">
+      <DependentUpon>Credit_Risk_Inquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRM_Inquiry.aspx.vb">
+      <DependentUpon>CRM_Inquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +408,14 @@
     <Compile Include="Page\RWAMasterInquiry.aspx.vb">
       <DependentUpon>RWAMasterInquiry.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RW Debt Calculation.aspx.vb">
+      <DependentUpon>RW Debt Calculation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RW_CRM_Calculation.aspx.vb">
+      <DependentUpon>RW_CRM_Calculation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
