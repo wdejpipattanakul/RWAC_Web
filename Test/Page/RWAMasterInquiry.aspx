@@ -1,4 +1,4 @@
-﻿<%@ Page Title="RWA Master Transaction Inquiry" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="RWAMasterInquiry.aspx.vb" Inherits="RWACApplication.RWAMasterInquiry" %>
+﻿<%@ Page Title="RWA Master Transaction Inquiry" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="RWAMasterInquiry.aspx.vb" Inherits="Test.RWAMasterInquiry" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
