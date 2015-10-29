@@ -557,6 +557,31 @@ Public Class clsUtility
             cn.Close()
         End Try
     End Function
+
+    Public Shared Function getReportDateList() As DataTable
+        Try
+            Dim ds As New DataSet
+            Dim cmd As New SqlCommand
+            Dim apd As SqlDataAdapter
+
+            With cmd
+                .Connection = connection()
+                .CommandType = CommandType.Text
+                .CommandText = "SELECT DISTINCT CONVERT(VARCHAR, AOD, 103) AS AOD FROM tbl_RWAC_History ORDER BY AOD"
+            End With
+
+            apd = New SqlDataAdapter(cmd)
+            apd.Fill(ds)
+            cmd.Dispose()
+            apd.Dispose()
+
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Throw New Exception(ex.ToString)
+        Finally
+            cn.Close()
+        End Try
+    End Function
 #End Region
 End Class
 

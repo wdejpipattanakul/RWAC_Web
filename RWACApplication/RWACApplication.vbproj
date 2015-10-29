@@ -43,6 +43,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>..\packages\GemBox.Spreadsheet.39.3.30.1106\lib\net30\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -419,7 +422,7 @@
     </Compile>
     <Compile Include="Page\RWAReportInquiry.aspx.vb">
       <DependentUpon>RWAReportInquiry.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Page\RWAMasterInquiry.aspx.designer.vb">
       <DependentUpon>RWAMasterInquiry.aspx</DependentUpon>
@@ -489,6 +492,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Template\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -513,7 +517,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>9710</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

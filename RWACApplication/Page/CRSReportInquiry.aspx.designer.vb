@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class CRSReportInquiry
 
     '''<summary>
+    '''ddlReportDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlReportDate As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''btnExportMain control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnExportMain As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''grdCRSMain control.
     '''</summary>
     '''<remarks>
@@ -21,6 +39,15 @@ Partial Public Class CRSReportInquiry
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grdCRSMain As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''btnExportTran control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnExportTran As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''grdCRSTran control.

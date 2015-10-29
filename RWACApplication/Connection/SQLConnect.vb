@@ -19,7 +19,7 @@ Public Module SQLConnect
         Return DSN
     End Function
     Public Function getConnectionString() As String
-        Return "data source=" & getDSN() & ";initial catalog=" & getNameDB() & ";user id=" & getUserDB() & ";password=" & getPassDB() & ";Enlist=no;Persist Security Info=no;Connection Lifetime=0;Max Pool Size=1;Min Pool Size=0"
+        Return "data source=" & getDSN() & ";initial catalog=" & getNameDB() & ";user id=" & getUserDB() & ";password=" & getPassDB() & ";Enlist=no;Persist Security Info=no;Connection Lifetime=10;Max Pool Size=20; Connection Timeout=10"
     End Function
 #Region " Query "
     Public Function toSqlDB(ByVal query As String) As DataSet

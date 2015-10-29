@@ -2,6 +2,16 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="ddlReportDate" style="padding-top:5px">Report Date:</label>
+        <div class="col-sm-2">
+            <asp:DropDownList ID="ddlReportDate" runat="server" AutoPostBack="true" class="form-control" Width="150px" ></asp:DropDownList>
+        </div>
+        <div class="col-sm-2">
+            <asp:Button ID="btnExport" runat="server" Text="Export RWA Report" class="btn btn-primary" />
+        </div>
+    </div>
+    <br />   
     <div class="table-responsive">  
         <asp:GridView ID="grdRWAMaster" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="Contract_ID" EmptyDataText="There are no data records to display." AllowPaging="true" PageSize="15">  
             <Columns>  

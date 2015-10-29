@@ -24,4 +24,24 @@ Public Class clsCRSReportInquiry
         ds = toSqlDB(cmd)
         Return ds
     End Function
+
+    Public Overloads Shared Function getCRSMainExport(ByVal aod As String) As DataSet
+        Dim ds As New DataSet
+        Dim sSql1 As String
+        sSql1 = " SELECT TOP 140 CreditRiskMethod, [CRM Method], CreditRiskType, CreditRiskItem, FtdAdjustMent, CcfRate, Reference "
+        sSql1 += "  FROM tbl_CRS_Main_Report"
+        sSql1 += " WHERE CONVERT(nvarchar, AOD, 103) = '" & aod & "'"
+        ds = toSqlDB(sSql1)
+        Return ds
+    End Function
+
+    Public Overloads Shared Function getCRSTranExport(ByVal aod As String) As DataSet
+        Dim ds As New DataSet
+        Dim sSql1 As String
+        sSql1 = " SELECT TOP 140 CreditRiskMethod, [CRM Method], CreditRiskType, CreditRiskItem, RW, [Notional Principle Amount], [Gross Credit Equivalent Amount], [Specific Provision], [Adjustment Item], [Net Credit Equivalent Amount], [Decrease in CRM], [Increase in CRM], [Potential Loss], [Risk Weighted Asset Outstanding Amount], Reference "
+        sSql1 += "  FROM tbl_CRS_Tran_Report"
+        sSql1 += " WHERE CONVERT(nvarchar, AOD, 103) = '" & aod & "'"
+        ds = toSqlDB(sSql1)
+        Return ds
+    End Function
 End Class
