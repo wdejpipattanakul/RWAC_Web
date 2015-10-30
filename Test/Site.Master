@@ -1,0 +1,94 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="Test.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />     
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" /> 
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <asp:PlaceHolder runat="server">        
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="<%: ResolveUrl("~/Content/Site.css")%>" rel="stylesheet" /> 
+        <link href="<%: ResolveUrl("~/Content/bootstrap.min.css")%>" rel="stylesheet" />
+        <script src="<%: ResolveUrl("~/Scripts/jquery-1.10.2.min.js")%>"></script>
+        <script src="<%: ResolveUrl("~/Scripts/bootstrap.min.js")%>"></script>
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="#">Credit Risk Weight Asset</a>
+                </div>
+                <div class="navbar-collapse collapse" style="font-size:12px">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Generate Master
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="font-size:12px">
+                                <li><a runat="server" href="#">Import Data Source</a></li>
+                                <li><a runat="server" href="#">Inquiry Data Source</a></li>
+                                <li><a runat="server" href="#">Generate Master Data</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer Manager
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="font-size:12px">
+                                <li><a runat="server" href="#">Asset Manager</a></li>
+                                <li><a runat="server" href="#">Credit Risk Manager</a></li>
+                                <li><a runat="server" href="#">ECAI Mapping</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transaction Manager
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="font-size:12px">
+                                <li><a runat="server" href="~/Page/CreditExposureInquiry.aspx">Classification Credit Exposure</a></li>
+                                <li><a runat="server" href="~/Page/CreditRiskInquiry.aspx">ClassificationCredit Risk</a></li>
+                                <li><a runat="server" href="~/Page/RWDebtCalculation.aspx">Calculate Transaction RW</a></li>
+                                <li><a runat="server" href="~/Page/CRMInquiry.aspx">CRM Management</a></li>
+                                <li><a runat="server" href="~/Page/RWCRMCalculation.aspx">Calculate CRM RW</a></li>
+                            </ul>
+                        </li>
+                        <li><a runat="server" href="~/Page/CalculateRW.aspx">Calculate RWA</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="font-size:12px">
+                                <li><a runat="server" href="~/Page/RWAMasterInquiry.aspx">RWA Master Inquiry</a></li>
+                                <li><a runat="server" href="~/Page/CRSReportInquiry.aspx">CRS Report</a></li>
+                                <li><a runat="server" href="~/Page/RWAReportInquiry.aspx">RWA Report</a></li>
+                            </ul>
+                        </li>                       
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/About.aspx" ><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
+                        <li><a runat="server" href="~/Contact.aspx"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Jimmy Consulting Group Application</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

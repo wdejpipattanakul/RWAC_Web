@@ -33,7 +33,7 @@ Public Module SQLConnect
         Dim oconn1 As New SqlConnection(getConnectionString())
         Dim oadap1 As New SqlDataAdapter(query, oconn1)
 
-        
+
 
         Dim DS As New DataSet
         'oadap.SelectCommand = New SqlCommand(query, oconn)

@@ -2,7 +2,22 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
-    <p>Main Report</p>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="ddlReportDate" style="padding-top:5px">Report Date:</label>
+        <div class="col-sm-2">
+            <asp:DropDownList ID="ddlReportDate" runat="server" AutoPostBack="true" class="form-control" Width="150px" ></asp:DropDownList>
+        </div>
+    </div>
+    <br /><br />
+    <div class="form-group">
+        <div class="col-sm-2">
+            <p style="padding-top:5px">Main Report</p>
+        </div>
+        <div class="col-sm-2">
+            <asp:Button ID="btnExportMain" runat="server" Text="Export CRS Main Report" class="btn btn-primary" />
+        </div>
+    </div>
+    <br />
     <div class="table-responsive">  
         <asp:GridView ID="grdCRSMain" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="Reference" EmptyDataText="There are no data records to display." AllowPaging="true" PageSize="5">  
             <Columns>  
@@ -32,8 +47,16 @@
             <%=grdCRSMain.PageCount%>
             </i> 
         </div>       
+    </div>   
+    <div class="form-group">
+        <div class="col-sm-2">
+            <p style="padding-top:5px">Tran Report</p>
+        </div>
+        <div class="col-sm-2">
+            <asp:Button ID="btnExportTran" runat="server" Text="Export CRS Tran Report" class="btn btn-primary" />
+        </div>
     </div>
-    <p>Tran Report</p>
+    <br />
     <div class="table-responsive">  
         <asp:GridView ID="grdCRSTran" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="Reference" EmptyDataText="There are no data records to display." AllowPaging="true" PageSize="5">  
             <Columns>  
