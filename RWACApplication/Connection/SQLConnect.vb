@@ -19,7 +19,7 @@ Public Module SQLConnect
         Return DSN
     End Function
     Public Function getConnectionString() As String
-        Return "data source=" & getDSN() & ";initial catalog=" & getNameDB() & ";user id=" & getUserDB() & ";password=" & getPassDB() & ";Enlist=no;Persist Security Info=no;Connection Lifetime=0;Max Pool Size=1;Min Pool Size=0"
+        Return "data source=" & getDSN() & ";initial catalog=" & getNameDB() & ";user id=" & getUserDB() & ";password=" & getPassDB() & ";Enlist=no;Persist Security Info=no;Connection Lifetime=0;Max Pool Size=10;Min Pool Size=0"
     End Function
 #Region " Query "
     Public Function toSqlDB(ByVal query As String) As DataSet
@@ -32,6 +32,8 @@ Public Module SQLConnect
 
         Dim oconn1 As New SqlConnection(getConnectionString())
         Dim oadap1 As New SqlDataAdapter(query, oconn1)
+
+        
 
         Dim DS As New DataSet
         'oadap.SelectCommand = New SqlCommand(query, oconn)

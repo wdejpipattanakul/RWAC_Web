@@ -4,7 +4,7 @@ Public Class Global_asax
     Inherits HttpApplication
 
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires when the application is started
+        '' Fires when the application is started
         AuthConfig.RegisterOpenAuth()
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)

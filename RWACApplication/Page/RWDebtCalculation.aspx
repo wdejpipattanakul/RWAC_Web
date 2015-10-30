@@ -1,7 +1,11 @@
-﻿<%@ Page Title="Calculate RWA" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="RWDebtCalculation.aspx.vb" Inherits="RWACApplication.RWDebtCalculation" %>
+﻿<%@ Page Title="RW Debt Calculation" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="RWDebtCalculation.aspx.vb" Inherits="RWACApplication.RWDebtCalculation" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
+        <asp:Button ID="Button1" runat="server" Text="Calculate RW" Width="117px" Height="30px" />
+    
+    &nbsp
+    
     <div class="table-responsive">  
         <asp:GridView ID="grdTran" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="Contract_ID" EmptyDataText="There are no data records to display." AllowPaging="true" PageSize="15">  
             <Columns>
