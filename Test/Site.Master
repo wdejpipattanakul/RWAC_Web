@@ -72,12 +72,11 @@
                                 <li><a runat="server" href="~/Page/CRSReportInquiry.aspx">CRS Report</a></li>
                                 <li><a runat="server" href="~/Page/RWAReportInquiry.aspx">RWA Report</a></li>
                             </ul>
-                        </li>                       
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a runat="server" href="~/About.aspx" ><span class="glyphicon glyphicon-info-sign"></span>About</a></li>
-                        <li><a runat="server" href="~/Contact.aspx"><span class="glyphicon glyphicon-earphone"></span>Contact</a></li>
-                    </ul>
+                        </li>
+                        <li><a runat="server" href="~/About.aspx" >About</a></li>
+                        <li><a runat="server" href="~/Contact.aspx">Contact</a></li>
+                        <li><asp:LoginStatus ID="LoginStatus1" runat="server" /></li>                    
+                    </ul>                   
                 </div>
             </div>
         </div>

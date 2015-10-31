@@ -2,6 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
+    <asp:Button ID="CalculateRWA" runat="server" Text="Calculate RWA" Height="30px" Width="131px" />    &nbsp&nbsp
+    <asp:Button ID="Archive" runat="server" Text="Archive" Height="30px" Width="99px" />
+
+    &nbsp
     <div class="table-responsive">  
         <asp:GridView ID="grdTran" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="Contract_ID" EmptyDataText="There are no data records to display." AllowPaging="true" PageSize="15">  
             <Columns>

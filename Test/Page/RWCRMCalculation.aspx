@@ -2,6 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
+
+    <asp:Button ID="RWCRMCalculate" runat="server" Text="Re-Calculate RW" Width="131px" Height="30px" />
+    &nbsp
     <div class="table-responsive">  
         <asp:GridView ID="grdTran" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="100%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" EmptyDataText="There are no data records to display." AllowPaging="true" PageSize="15">  
             <Columns>
