@@ -11,23 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class RWCRMCalculation
+Partial Public Class Login
 
     '''<summary>
-    '''RWCRMCalculate control.
+    '''Head1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RWCRMCalculate As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents Head1 As Global.System.Web.UI.HtmlControls.HtmlHead
 
     '''<summary>
-    '''grdTran control.
+    '''form1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents grdTran As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+
+    '''<summary>
+    '''Login1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Login1 As Global.System.Web.UI.WebControls.Login
 End Class

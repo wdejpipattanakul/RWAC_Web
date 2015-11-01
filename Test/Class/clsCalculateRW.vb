@@ -13,5 +13,8 @@ Public Class clsCalculateRW
         'cmd += " WHERE CONVERT(nvarchar, AOD, 103) = '" & aod & "'"
         ds = toSqlDB(cmd)
         Return ds
+
+
+
     End Function
 End Class

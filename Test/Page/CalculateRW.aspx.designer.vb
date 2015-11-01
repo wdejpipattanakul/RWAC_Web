@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class CalculateRW
 
     '''<summary>
+    '''CalculateRWA control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CalculateRWA As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Archive control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Archive As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''grdTran control.
     '''</summary>
     '''<remarks>
