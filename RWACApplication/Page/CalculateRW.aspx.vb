@@ -4,8 +4,90 @@ Public Class CalculateRW
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+
+        Dim strSQL As String
+        Dim record_count As Long
+        Dim record_count2 As Long
+        Dim i As Long = 0
+        Dim k As Long = 0
+        Dim msg As String
+        Dim msg2 As String
+
         If Not IsPostBack Then
-            BindData()
+
+            Dim oconn1 As New SqlConnection(SQLConnect.getConnectionString())
+            oconn1.Open()
+            strSQL = " SELECT RW from tbl_RWAC_Master Where RW IS NULL"
+
+            Dim dt As New DataTable()
+            Dim objCommand As New SqlCommand(strSQL, oconn1)
+            Dim objDataReader As SqlDataReader = objCommand.ExecuteReader()
+            dt.Load(objDataReader)
+            record_count = dt.Rows.Count
+            Debug.Print("row = " & record_count)
+            dt.Clear()
+            dt.Rows.Clear()
+            dt.Columns.Clear()
+
+            strSQL = " SELECT RW_Collateral from tbl_CRM_Master Where RW_Collateral IS NULL"
+            objCommand = New SqlCommand(strSQL, oconn1)
+            objCommand.ExecuteReader()
+            dt.Load(objDataReader)
+            record_count2 = dt.Rows.Count
+            Debug.Print("rowC = " & record_count2)
+            dt.Clear()
+            dt.Rows.Clear()
+            dt.Columns.Clear()
+
+            objDataReader.Close()
+            objCommand.Dispose()
+            oconn1.Close()
+
+
+            
+
+
+
+
+
+            If record_count > 0 Or record_count2 > 0 Then
+
+                If record_count > 0 And record_count2 > 0 Then
+                    msg = MsgBox("RW Transaction Can't Be Null" & vbCrLf & "RW Collateral Can't Be Null", vbExclamation, "Error")
+
+                ElseIf record_count2 > 0 Then
+                    msg = MsgBox("RW Collateral Can't Be Null", vbExclamation, "Error")
+                ElseIf record_count > 0 Then
+                    msg = MsgBox("RW Transaction Can't Be Null", vbExclamation, "Error")
+                End If
+
+                If IsNothing(Request.UrlReferrer) Then
+                    Response.Redirect("/Default.aspx")
+
+                Else
+                    ViewState("RefUrl") = Request.UrlReferrer.ToString()
+                    Dim refUrl As Object = ViewState("RefUrl")
+                    Response.Redirect(refUrl.ToString())
+
+                End If
+            Else
+                
+                BindData()
+
+            End If
+
+
+
+
+
+
+
+
+
+
+
+
+
         End If
     End Sub
 
@@ -18,10 +100,10 @@ Public Class CalculateRW
         SQLConnect.ExcNonQuery("DELETE FROM tbl_Summary_CRM_Calculation_Method")
 
         'Q_Update_RWA_Calculation_Method
-        SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master LEFT JOIN tbl_Summary_CRM_Calculation_Method ON (tbl_RWAC_Master.Cust_ID = tbl_Summary_CRM_Calculation_Method.Cust_ID) AND (tbl_RWAC_Master.Facility_ID = tbl_Summary_CRM_Calculation_Method.Facility_ID) AND (tbl_RWAC_Master.Contract_ID = tbl_Summary_CRM_Calculation_Method.Transaction_ID) SET tbl_RWAC_Master.Calculation_Method = NZ(tbl_Summary_CRM_Calculation_Method.[Calculation_Method],IIF(tbl_RWAC_Master.Trading_Book_Flag = True, 'Comprehensive', 'Simple'))")
+        SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master LEFT JOIN tbl_Summary_CRM_Calculation_Method ON (tbl_RWAC_Master.Cust_ID = tbl_Summary_CRM_Calculation_Method.Cust_ID) AND (tbl_RWAC_Master.Facility_ID = tbl_Summary_CRM_Calculation_Method.Facility_ID) AND (tbl_RWAC_Master.Contract_ID = tbl_Summary_CRM_Calculation_Method.Transaction_ID) SET tbl_RWAC_Master.Calculation_Method = ISNULL(tbl_Summary_CRM_Calculation_Method.[Calculation_Method],IIF(tbl_RWAC_Master.Trading_Book_Flag = 1, 'Comprehensive', 'Simple'))")
 
         'Q_Update_CRM_Calculation_Method
-        SQLConnect.ExcNonQuery("UPDATE (tbl_CRM_Allocated LEFT JOIN tbl_Summary_CRM_Calculation_Method ON (tbl_CRM_Allocated.Cust_ID = tbl_Summary_CRM_Calculation_Method.Cust_ID) AND (tbl_CRM_Allocated.Facility_ID = tbl_Summary_CRM_Calculation_Method.Facility_ID) AND (tbl_CRM_Allocated.Transaction_ID = tbl_Summary_CRM_Calculation_Method.Transaction_ID)) LEFT JOIN tbl_RWAC_Master ON (tbl_CRM_Allocated.Cust_ID = tbl_RWAC_Master.Cust_ID) AND (tbl_CRM_Allocated.Facility_ID = tbl_RWAC_Master.Facility_ID) AND (tbl_CRM_Allocated.Transaction_ID = tbl_RWAC_Master.Contract_ID) SET tbl_CRM_Allocated.TRN_Calculation_Method = NZ(tbl_Summary_CRM_Calculation_Method.Calculation_Method,IIf(tbl_RWAC_Master.Trading_Book_Flag=True,'Comprehensive',IIf(tbl_CRM_Allocated.[TYPE]='On Balance','Comprehensive','Simple'))), tbl_CRM_Allocated.TRN_Calculation_Method_Ori = NZ(tbl_Summary_CRM_Calculation_Method.Calculation_Method, IIf(tbl_RWAC_Master.Trading_Book_Flag=True,'Comprehensive',IIf(tbl_CRM_Allocated.[TYPE]='On Balance','Comprehensive','Simple')))")
+        SQLConnect.ExcNonQuery("UPDATE (tbl_CRM_Allocated LEFT JOIN tbl_Summary_CRM_Calculation_Method ON (tbl_CRM_Allocated.Cust_ID = tbl_Summary_CRM_Calculation_Method.Cust_ID) AND (tbl_CRM_Allocated.Facility_ID = tbl_Summary_CRM_Calculation_Method.Facility_ID) AND (tbl_CRM_Allocated.Transaction_ID = tbl_Summary_CRM_Calculation_Method.Transaction_ID)) LEFT JOIN tbl_RWAC_Master ON (tbl_CRM_Allocated.Cust_ID = tbl_RWAC_Master.Cust_ID) AND (tbl_CRM_Allocated.Facility_ID = tbl_RWAC_Master.Facility_ID) AND (tbl_CRM_Allocated.Transaction_ID = tbl_RWAC_Master.Contract_ID) SET tbl_CRM_Allocated.TRN_Calculation_Method = ISNULL(tbl_Summary_CRM_Calculation_Method.Calculation_Method,IIf(tbl_RWAC_Master.Trading_Book_Flag=1,'Comprehensive',IIf(tbl_CRM_Allocated.[TYPE]='On Balance','Comprehensive','Simple'))), tbl_CRM_Allocated.TRN_Calculation_Method_Ori = ISNULL(tbl_Summary_CRM_Calculation_Method.Calculation_Method, IIf(tbl_RWAC_Master.Trading_Book_Flag=1,'Comprehensive',IIf(tbl_CRM_Allocated.[TYPE]='On Balance','Comprehensive','Simple')))")
 
 
         'Q_Update_CRM_RW_Hc
@@ -38,6 +120,7 @@ Public Class CalculateRW
     End Sub
 
     Protected Sub Archive_Click(sender As Object, e As EventArgs) Handles Archive.Click
+
         Dim strSQL As String
         Dim Date_Filter As String
 
@@ -123,7 +206,7 @@ Public Class CalculateRW
 
     Protected Sub CalculateRWA_Click(sender As Object, e As EventArgs) Handles CalculateRWA.Click
         'Q_Update_RWA_OnBal_Simple
-        SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master SET tbl_RWAC_Master.RWA = (([Amount_THB]+IIF(Adjust_Accrued<>0,Adjust_Accrued,Accrued)-[Allocate_Asset_Amount]-[CRM_Allocated_Amount]-[Specific_Provision]+IIf(Memo='PCCMPRWK', Nz(MTM_Value,0), IIf(Credit_Type='Other assets',-1*Nz(Adjustment_Item,0), 0)))*[RW])+[RWA_Collateral]+[Funding_Allocated_Amount], tbl_RWAC_Master.RWA_No_Collateral = (([Amount_THB]+IIF(Adjust_Accrued<>0,Adjust_Accrued,Accrued)-[Allocate_Asset_Amount]-[CRM_Allocated_Amount]-[Specific_Provision]+IIf(Memo='PCCMPRWK', Nz(MTM_Value,0), IIf(Credit_Type='Other assets',-1*Nz(Adjustment_Item,0), 0)))*[RW])+[Funding_Allocated_Amount]" & _
+        SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master SET tbl_RWAC_Master.RWA = (([Amount_THB]+IIF(Adjust_Accrued<>0,Adjust_Accrued,Accrued)-[Allocate_Asset_Amount]-[CRM_Allocated_Amount]-[Specific_Provision]+IIf(Memo='PCCMPRWK', ISNULL(MTM_Value,0), IIf(Credit_Type='Other assets',-1*ISNULL(Adjustment_Item,0), 0)))*[RW])+[RWA_Collateral]+[Funding_Allocated_Amount], tbl_RWAC_Master.RWA_No_Collateral = (([Amount_THB]+IIF(Adjust_Accrued<>0,Adjust_Accrued,Accrued)-[Allocate_Asset_Amount]-[CRM_Allocated_Amount]-[Specific_Provision]+IIf(Memo='PCCMPRWK', ISNULL(MTM_Value,0), IIf(Credit_Type='Other assets',-1*ISNULL(Adjustment_Item,0), 0)))*[RW])+[Funding_Allocated_Amount]" & _
                                 " WHERE (((tbl_RWAC_Master.Calculation_Method)='Simple') And ((tbl_RWAC_Master.[Credit_Exposure])='On-Bal'))")
 
 

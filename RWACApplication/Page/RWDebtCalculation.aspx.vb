@@ -93,7 +93,7 @@ Public Class RWDebtCalculation
         Dim dt As New DataTable()
         Dim dt2 As New DataTable()
 
-
+        
         'objCommand.Connection.Open()
 
         Dim objCommand As New SqlCommand(strSQL, oconn1)
@@ -249,14 +249,14 @@ Public Class RWDebtCalculation
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR') And ISNULL(Rating_Value,'') <> '' And Term = 'Long Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
 
                         ElseIf LS_Term = "Short Term" Then
                             'strSQL2 = "SELECT RWA_Counter_Party_Name,ECAI_Name, Trim(Replace(Replace(Replace(Replace(IIF(tbl_ECAI_Rating.Rating_Value & '' <>'', tbl_ECAI_Rating.Rating_Value ,''),'/*',''),'*-',''),'*+',''),'*','')) AS Rating_Value FROM Q_Mapping_CounterPartyName2 " & _
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR','B','C','D') And ISNULL(Rating_Value,'') <> '' And Term = 'Short Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
                         End If
 
                         objCommand2 = New SqlCommand(strSQL2, oconn2)
@@ -516,14 +516,14 @@ Public Class RWDebtCalculation
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR') And ISNULL(Rating_Value,'') <> '' And Term = 'Long Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
 
                         ElseIf LS_Term = "Short Term" Then
                             'strSQL2 = "SELECT RWA_Counter_Party_Name,ECAI_Name, Trim(Replace(Replace(Replace(Replace(IIF(tbl_ECAI_Rating.Rating_Value & '' <>'', tbl_ECAI_Rating.Rating_Value ,''),'/*',''),'*-',''),'*+',''),'*','')) AS Rating_Value FROM Q_Mapping_CounterPartyName2 " & _
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR','B','C','D') And ISNULL(Rating_Value,'') <> '' And Term = 'Short Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
                         End If
 
                         objCommand2 = New SqlCommand(strSQL2, oconn2)
@@ -785,14 +785,14 @@ Public Class RWDebtCalculation
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR') And ISNULL(Rating_Value,'') <> '' And Term = 'Long Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
 
                         ElseIf LS_Term = "Short Term" Then
                             'strSQL2 = "SELECT RWA_Counter_Party_Name,ECAI_Name, Trim(Replace(Replace(Replace(Replace(IIF(tbl_ECAI_Rating.Rating_Value & '' <>'', tbl_ECAI_Rating.Rating_Value ,''),'/*',''),'*-',''),'*+',''),'*','')) AS Rating_Value FROM Q_Mapping_CounterPartyName2 " & _
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR','B','C','D') And ISNULL(Rating_Value,'') <> '' And Term = 'Short Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
                         End If
 
                         objCommand2 = New SqlCommand(strSQL2, oconn2)
@@ -1035,14 +1035,14 @@ Public Class RWDebtCalculation
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR') And ISNULL(Rating_Value,'') <> '' And Term = 'Long Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
 
                         ElseIf LS_Term = "Short Term" Then
                             'strSQL2 = "SELECT RWA_Counter_Party_Name,ECAI_Name, Trim(Replace(Replace(Replace(Replace(IIF(tbl_ECAI_Rating.Rating_Value & '' <>'', tbl_ECAI_Rating.Rating_Value ,''),'/*',''),'*-',''),'*+',''),'*','')) AS Rating_Value FROM Q_Mapping_CounterPartyName2 " & _
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR','B','C','D') And ISNULL(Rating_Value,'') <> '' And Term = 'Short Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
                         End If
 
                         objCommand2 = New SqlCommand(strSQL2, oconn2)
@@ -1264,22 +1264,23 @@ Public Class RWDebtCalculation
         'Update Trans_He_Value = 0 Not Bond
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master " & _
                      " SET Trans_He_Value = 0" & _
-                     " WHERE Memo <> 'PCCMPRWK' And RW & '' <> ''")
+                     " WHERE Memo <> 'PCCMPRWK' And (ISNULL(RW , '') = '')")
 
 
         'Update RW No Mapping Case
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 1, ECAI_Name = 'NO RATING'" & _
-                     " WHERE Credit_Risk_Subtype IN('1.1','1.2','2.1.1','2.1.2','2.1.3','4','5') And (RW & '' = '' OR Rating_Grade & '' ='')")
+                     " WHERE Credit_Risk_Subtype IN('1.1','1.2','2.1.1','2.1.2','2.1.3','4','5') And (ISNULL(RW , '') = '' OR  ISNULL(Rating_Grade, '') = '')")
+
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 0.5, ECAI_Name = 'NO RATING'" & _
-                     " WHERE Credit_Risk_Subtype IN('3.1','3.2') And (RW & '' = '' OR Rating_Grade & '' ='')")
+                     " WHERE Credit_Risk_Subtype IN('3.1','3.2') And (ISNULL(RW , '') = '' OR  ISNULL(Rating_Grade, '') = '')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 1, ECAI_Name = 'NO RATING'" & _
-                     " WHERE Credit_Risk_Subtype IN('6') And (RW & '' = '' OR Rating_Grade & '' ='')")
+                     " WHERE Credit_Risk_Subtype IN('6') And (ISNULL(RW , '') = '' OR  ISNULL(Rating_Grade, '') = '')")
 
         '1.1 1.3 RW = 0% Calculate RWA
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
@@ -1291,47 +1292,47 @@ Public Class RWDebtCalculation
         '1. SP < 20% of Debt
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 1.5" & _
-                     " WHERE NPL_Flag = True AND Specific_Provision < (Amount_THB*0.2)")
+                     " WHERE NPL_Flag = 1 AND Specific_Provision < (Amount_THB*0.2)")
 
         '2. 20<= SP < 50% of Debt
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 1" & _
-                     " WHERE NPL_Flag = True AND Specific_Provision >= (Amount_THB*0.2) AND Specific_Provision < (Amount_THB*0.5)")
+                     " WHERE NPL_Flag = 1 AND Specific_Provision >= (Amount_THB*0.2) AND Specific_Provision < (Amount_THB*0.5)")
 
         '3. SP >= 50% of Debt And NPL < 1 year
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 0.5" & _
-                     " WHERE NPL_Flag = True AND Specific_Provision >= (Amount_THB*0.5) AND DateDiff('d',NPL_Start_Date,AOD) < 365")
+                     " WHERE NPL_Flag = 1 AND Specific_Provision >= (Amount_THB*0.5) AND DateDiff(day,NPL_Start_Date,AOD) < 365")
         '4. SP < 20% of Debt
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 1" & _
-                     " WHERE NPL_Flag = True AND Specific_Provision >= (Amount_THB*0.5) AND DateDiff('d',NPL_Start_Date,AOD) >= 365")
+                     " WHERE NPL_Flag = 1 AND Specific_Provision >= (Amount_THB*0.5) AND DateDiff(day,NPL_Start_Date,AOD) >= 365")
 
         'Update RW DVP -NONDVP
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 1" & _
-                     " WHERE DateDiff('d',AOD,Maturity_Date) <= -5 And DateDiff('d',Maturity_Date,AOD) >= -15 And (Memo = 'DVP-Bonds Investment')")
+                     " WHERE DateDiff(day,AOD,Maturity_Date) <= -5 And DateDiff(day,Maturity_Date,AOD) >= -15 And (Memo = 'DVP-Bonds Investment')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 6.25" & _
-                     " WHERE DateDiff('d',AOD,Maturity_Date) <= -16 And DateDiff('d',Maturity_Date,AOD) >= -30 And (Memo = 'DVP-Bonds Investment')")
+                     " WHERE DateDiff(day,AOD,Maturity_Date) <= -16 And DateDiff(day,Maturity_Date,AOD) >= -30 And (Memo = 'DVP-Bonds Investment')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 9.375" & _
-                     " WHERE DateDiff('d',AOD,Maturity_Date) <= -31 And DateDiff('d',Maturity_Date,AOD) >= -45 And (Memo = 'DVP-Bonds Investment')")
+                     " WHERE DateDiff(day,AOD,Maturity_Date) <= -31 And DateDiff(day,Maturity_Date,AOD) >= -45 And (Memo = 'DVP-Bonds Investment')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 11.765" & _
-                     " WHERE DateDiff('d',AOD,Maturity_Date) <= -46 And (Memo = 'DVP-Bonds Investment')")
+                     " WHERE DateDiff(day,AOD,Maturity_Date) <= -46 And (Memo = 'DVP-Bonds Investment')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                      " SET RW = 0" & _
-                     " WHERE DateDiff('d',AOD,Maturity_Date) >-5 And (Memo = 'DVP-Bonds Investment')")
+                     " WHERE DateDiff(day,AOD,Maturity_Date) >-5 And (Memo = 'DVP-Bonds Investment')")
 
 
         'Update Remainin Term DVP
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
-                     " SET Remaining_Term = DateDiff('d',AOD,Maturity_Date) where (Memo = 'DVP-Bond Primary' or Memo = 'DVP-Bonds Investment' or Memo = 'DVP-FX')")
+                     " SET Remaining_Term = DateDiff(day,AOD,Maturity_Date) where (Memo = 'DVP-Bond Primary' or Memo = 'DVP-Bonds Investment' or Memo = 'DVP-FX')")
 
 
 
@@ -1373,7 +1374,7 @@ Public Class RWDebtCalculation
         'Calculate RWA DVP-NONDVP Bonds investment
 
 
-        strSQL = "SELECT  * FROM  DVP_Calculation Where Type = 'Bonds primary'"
+        strSQL = "SELECT  * FROM  DVP_Calculation Where Type = 'Bonds investment'"
 
 
         objCommand = New SqlCommand(strSQL, oconn1)
@@ -1382,13 +1383,13 @@ Public Class RWDebtCalculation
 
         If objDataReader.HasRows Then
             Do While objDataReader.Read()
-                If objDataReader.Item("BondInvest3") = True Then
+                If objDataReader.Item("BondInvest3") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
-                                " SET RWA = '" & objDataReader.Item("PCE") * objDataReader.Item("RW") & "'" & _
+                                " SET RWA = '" & objDataReader.Item("PCE") * objDataReader.Item("RW") & "', Rating_Grade = ''" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
                 Else
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
-                                " SET RWA = 0" & _
+                                " SET RWA = 0, Rating_Grade = ''" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
                 End If
             Loop
@@ -1414,12 +1415,12 @@ Public Class RWDebtCalculation
 
         If objDataReader.HasRows Then
             Do While objDataReader.Read()
-                If objDataReader.Item("BondPrimary1") = True Then
+                If objDataReader.Item("BondPrimary1") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & objDataReader.Item("Subscription fee") / objDataReader.Item("Subscription_usdr") * ccy_rate * objDataReader.Item("RW_Underwriter") & "', RW = '" & objDataReader.Item("RW_Underwriter") & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("BondPrimary2") = True Then
+                ElseIf objDataReader.Item("BondPrimary2") = 1 Then
                     If objDataReader.Item("RW_Underwriter") > objDataReader.Item("RW_Issuer") Then
                         MaxName = objDataReader.Item("Underwriter name")
                         MaxRW = objDataReader.Item("RW_Underwriter")
@@ -1436,7 +1437,7 @@ Public Class RWDebtCalculation
 
                     strSQL2 = " SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name, tbl_ECAI_Rating.Rating_Group,tbl_BOT_Rating_Type.Rating_Debt"
                     strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON (Replace(tbl_ECAI_Rating.ECAI_Name,'''','') = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term) AND (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,''))"
-                    strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & MaxName & "' AND Term = 'Long Term' AND Currency_Type = 'Local Currency' AND ECAI_Name = '" & ECAI_Name_Primary & "' AND Rating_Value = '" & ECAI_Value_Primary & "'"
+                    strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & MaxName & "' AND tbl_ECAI_Rating.Term = 'Long Term' AND tbl_ECAI_Rating.Currency_Type = 'Local Currency' AND tbl_ECAI_Rating.ECAI_Name = '" & ECAI_Name_Primary & "' AND tbl_ECAI_Rating.Rating_Value = '" & ECAI_Value_Primary & "'"
 
 
 
@@ -1454,7 +1455,7 @@ Public Class RWDebtCalculation
                     End If
 
 
-                ElseIf objDataReader.Item("BondPrimary3") = True Then
+                ElseIf objDataReader.Item("BondPrimary3") = 1 Then
                     If objDataReader.Item("Remaining_Term") >= 5 And objDataReader.Item("Remaining_Term") <= 15 Then
                         RW_DVP = 1
 
@@ -1473,7 +1474,7 @@ Public Class RWDebtCalculation
                                 " SET RWA = '" & ((objDataReader.Item("Subscription fee") / objDataReader.Item("Subscription_usdr") * ccy_rate) + objDataReader.Item("PCE")) * RW_DVP & "', RW = '" & RW_DVP & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                    End If
+                End If
             Loop
 
         End If
@@ -1489,11 +1490,11 @@ Public Class RWDebtCalculation
 
         If objDataReader.HasRows Then
             Do While objDataReader.Read()
-                If objDataReader.Item("FXSpot2") = True Then
+                If objDataReader.Item("FXSpot2") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & objDataReader.Item("Received amount") / objDataReader.Item("Receive_usdr") * ccy_rate * objDataReader.Item("RW") & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
-                ElseIf objDataReader.Item("FXSpot3") = True Then
+                ElseIf objDataReader.Item("FXSpot3") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & ((objDataReader.Item("Paid amount") / objDataReader.Item("Pay_usdr") * ccy_rate) + objDataReader.Item("PCE")) * 11.765 & "', RW = 11.765" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
@@ -1516,22 +1517,22 @@ Public Class RWDebtCalculation
 
         If objDataReader.HasRows Then
             Do While objDataReader.Read()
-                If objDataReader.Item("FXForward1") = True Then
+                If objDataReader.Item("FXForward1") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & objDataReader.Item("CEA") * objDataReader.Item("RW") & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("FXForward2") = True Then
+                ElseIf objDataReader.Item("FXForward2") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & objDataReader.Item("PCE") * objDataReader.Item("RW") & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("FXForward3") = True Then
+                ElseIf objDataReader.Item("FXForward3") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & (objDataReader.Item("Received amount") / objDataReader.Item("Receive_usdr") * ccy_rate * objDataReader.Item("RW")) & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("FXForward4") = True Then
+                ElseIf objDataReader.Item("FXForward4") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & ((objDataReader.Item("Paid amount") / objDataReader.Item("Pay_usdr") * ccy_rate) + objDataReader.Item("PCE")) * 11.765 & "', RW = 11.765" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
@@ -1551,22 +1552,22 @@ Public Class RWDebtCalculation
 
         If objDataReader.HasRows Then
             Do While objDataReader.Read()
-                If objDataReader.Item("FXForward1") = True Then
+                If objDataReader.Item("FXForward1") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & objDataReader.Item("CEA") * objDataReader.Item("RW") & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("FXForward2") = True Then
+                ElseIf objDataReader.Item("FXForward2") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & objDataReader.Item("PCE") * objDataReader.Item("RW") & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("FXForward3") = True Then
+                ElseIf objDataReader.Item("FXForward3") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & (objDataReader.Item("Received amount") / objDataReader.Item("Receive_usdr") * ccy_rate * objDataReader.Item("RW")) & "'" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
 
-                ElseIf objDataReader.Item("FXForward4") = True Then
+                ElseIf objDataReader.Item("FXForward4") = 1 Then
                     SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master" & _
                                 " SET RWA = '" & ((objDataReader.Item("Paid amount") / objDataReader.Item("Pay_usdr") * ccy_rate) + objDataReader.Item("PCE")) * 11.765 & "', RW = 11.765" & _
                                 " WHERE Contract_ID = '" & objDataReader.Item("Contract_ID") & "'")
@@ -1575,8 +1576,7 @@ Public Class RWDebtCalculation
 
         End If
 
-
-
+        
 
 
         objDataReader.Close()

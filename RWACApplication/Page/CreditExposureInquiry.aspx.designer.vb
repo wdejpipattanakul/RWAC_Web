@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class CreditExposureInquiry
 
     '''<summary>
+    '''UpdateNetting control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateNetting As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''grdTran control.
     '''</summary>
     '''<remarks>
