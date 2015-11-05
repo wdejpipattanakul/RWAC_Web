@@ -29,7 +29,33 @@
                 <asp:CheckBoxField DataField="NPL_Flag" HeaderText="NPL_Flag" SortExpression="NPL_Flag" ReadOnly="True"/>
                 <asp:CheckBoxField DataField="Trading_Book_Flag" HeaderText="Trading_Book_Flag(*)" SortExpression="Trading_Book_Flag" />
                 <asp:CheckBoxField DataField="FX_Netting_Flag" HeaderText="FX_Netting_Flag(*)" SortExpression="FX_Netting_Flag" />
-                <asp:BoundField DataField="Credit_Exposure" HeaderText="Credit_Exposure(*)" SortExpression="Credit_Exposure" />
+                <%--<asp:TemplateField DataField="Credit_Exposure" HeaderText="Credit_Exposure(*)" SortExpression="Credit_Exposure" />--%>
+                
+                <asp:TemplateField HeaderText="Credit_Exposure">
+                <EditItemTemplate>
+		            <asp:DropDownList ID="ddlCredit_Exposure" runat="server" SelectedValue='<%# Eval("Credit_Exposure")%>'>
+			            <asp:ListItem>On-Bal</asp:ListItem>
+                        <asp:ListItem>Off-Bal Non-Derivative</asp:ListItem>
+                        <asp:ListItem>Derivative</asp:ListItem>
+                        <asp:ListItem>Non-DVP</asp:ListItem>
+                        <asp:ListItem>DVP</asp:ListItem>
+                        <asp:ListItem></asp:ListItem>
+		            </asp:DropDownList>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Credit_Exposure" runat="server" Text='<%# Eval("Credit_Exposure")%>'></asp:Label>
+		           <%-- <asp:DropDownList ID="ddlCredit_Exposure" runat="server" SelectedValue='<%# Eval("Credit_Exposure")%>'>
+			            <asp:ListItem>On-Bal</asp:ListItem>
+                        <asp:ListItem>Off-Bal Non-Derivative</asp:ListItem>
+                        <asp:ListItem>Derivative</asp:ListItem>
+                        <asp:ListItem>Non-DVP</asp:ListItem>
+                        <asp:ListItem>DVP</asp:ListItem>
+                        <asp:ListItem></asp:ListItem>
+		            </asp:DropDownList>--%>
+                </ItemTemplate>
+                </asp:TemplateField>
+
+
                 <asp:CommandField ShowEditButton="True" />
                 
                 

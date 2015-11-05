@@ -37,6 +37,18 @@ Public Class CreditExposureInquiry
 
         Dim Contract_ID As String = grdTran.Rows(e.RowIndex).Cells(2).Text
 
+        'Get hold of combobox
+        Dim row As GridViewRow = DirectCast(sender, 
+        GridView).Rows(e.RowIndex)
+        Dim cbo As DropDownList =
+        DirectCast(row.FindControl("ddlCredit_Exposure"), DropDownList)
+
+        'Set the New value of the object
+        e.NewValues("Credit_Exposure") = cbo.SelectedValue
+
+
+
+        'MsgBox(e.NewValues("Credit_Exposure") + "_" + grdTran.Rows(e.RowIndex).Cells(20).Text)
 
         SQLConnect.ExcNonQuery("Update tbl_RWAC_Master set Adjust_Accrued = '" & e.NewValues("Adjust_Accrued") & "', Specific_Provision = '" & e.NewValues("Specific_Provision") & "', Trading_Book_Flag = '" & e.NewValues("Trading_Book_Flag") & "', FX_Netting_Flag = '" & e.NewValues("FX_Netting_Flag") & "', Credit_Exposure = '" & e.NewValues("Credit_Exposure") & "'" & _
                                " where Contract_ID = '" & Contract_ID & "'")
