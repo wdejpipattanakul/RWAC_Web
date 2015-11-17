@@ -155,8 +155,8 @@ Public Class CreditExposureInquiry
                      " SET MTM_Value = '', MTM_Loss = '' , MTM_Profit = '' , RCgross = '', Agross = '' " & _
                      " WHERE Memo = 'PCFXCOBK' AND FX_Netting_Flag = True")
 
-
-        MsgBox("Update FX Netting Agreement Successful")
+        Response.Write("<script type=""text/javascript"">alert(""Update FX Netting Agreement Successful"");</script>")
+        'MsgBox("Update FX Netting Agreement Successful")
 
         BindData()
     End Sub

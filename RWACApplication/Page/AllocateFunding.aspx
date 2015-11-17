@@ -1,9 +1,16 @@
-﻿<%@ Page Title="Allocate Funding" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AllocateFunding.aspx.vb" Inherits="RWACApplication.AllocateFunding" %>
+﻿<%@ Page Title="Allocate Funding" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AllocateFunding.aspx.vb" Inherits="RWACApplication.AllocateFunding" MaintainScrollPositionOnPostBack = "true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: Title %></h4>
     
-    Cust_ID : <asp:DropDownList ID="DropDownList1" runat="server" Width ="400px"></asp:DropDownList>  Currrency : <asp:DropDownList ID="DropDownList2" runat="server" Width ="75px"> </asp:DropDownList> <asp:Button ID="Search" runat="server" Text="Search" />
+    Cust_ID : <asp:DropDownList ID="ddlCustID" runat="server" Width ="400px" AutoPostBack ="True" AppendDataBoundItems="true">
+              <asp:ListItem Text="" Value="Empthy" />
+              </asp:DropDownList>  
+              Currrency : <asp:DropDownList ID="ddlCurrency" runat="server" Width ="75px" AutoPostBack ="True" AppendDataBoundItems="false"> 
+              <asp:ListItem Text="" Value="Empthy" />
+              </asp:DropDownList> &nbsp
+              <asp:Button ID="Search" runat="server" Text="Search" /> &nbsp
+              <asp:Button ID="Clear" runat="server" Text="Clear" />
     <br/>
     
     <br/>
@@ -22,8 +29,6 @@
                 <asp:BoundField DataField="Credit_Risk_Subtype" HeaderText="Credit_Risk_Subtype" SortExpression="Credit_Risk_Subtype" ReadOnly="True"/>
                 <asp:BoundField DataField="Remaining_Date" HeaderText="Contract_Prd" SortExpression="Remaining_Date" ReadOnly="True"/>
                 <asp:BoundField DataField="Allocate_Asset_Amount" HeaderText="Allocate_Asset_Amount" SortExpression="Allocate_Asset_Amount"/>
-                
-               
                 <asp:CommandField ShowEditButton="True" />
                 
                 
@@ -45,7 +50,10 @@
     <br/>
     <h4>Funding List</h4>
     
-    Remaining Amount : <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    Currrency : <asp:DropDownList ID="ddlListCurrency" runat="server" Width ="75px" AutoPostBack ="True" AppendDataBoundItems="true"> 
+              <asp:ListItem Text="" Value="Empthy" />
+              </asp:DropDownList> Remaining Amount : <asp:TextBox ID="txtRemainingAmount" runat="server" style="text-align: right" ReadOnly="True"></asp:TextBox>
+              <asp:TextBox ID="txtSearch" runat="server" style="text-align: right" Visible="False"></asp:TextBox>
     <br/><br/>
     <div class="table-responsive">  
         <asp:GridView ID="grdTran2" runat="server" RowStyle-Wrap="false" Font-Size="XX-Small" Width="50%" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" 
@@ -66,9 +74,9 @@
         </asp:GridView>
         <div style="font-size:x-small" hidden="hidden">
             <i>You are viewing page
-            <%=grdTran.PageIndex + 1%>
+            <%=grdTran2.PageIndex + 1%>
             of
-            <%=grdTran.PageCount%>
+            <%=grdTran2.PageCount%>
             </i> 
         </div>       
     </div>

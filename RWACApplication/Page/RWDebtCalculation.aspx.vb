@@ -152,7 +152,8 @@ Public Class RWDebtCalculation
             objDataReader.Close()
             objCommand.Dispose()
         Else
-            MsgBox("Incomplete Data Can't Calculate RW" & vbNewLine & "Please Mapping ECAI_Name", vbCritical)
+            Response.Write("<script type=""text/javascript"">alert(""Incomplete Data Can't Calculate RW\nPlease Mapping ECAI_Name"");</script>")
+            'MsgBox("Incomplete Data Can't Calculate RW" & vbNewLine & "Please Mapping ECAI_Name", vbCritical)
             objDataReader.Close()
             objCommand.Dispose()
 
@@ -1591,8 +1592,8 @@ Public Class RWDebtCalculation
 
 
         BindData()
-
-        MsgBox("Calculate RW Successful")
+        Response.Write("<script type=""text/javascript"">alert(""Calculate RW Successful"");</script>")
+        'MsgBox("Calculate RW Successful")
 
     End Sub
 

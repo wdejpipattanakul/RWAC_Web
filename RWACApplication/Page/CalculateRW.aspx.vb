@@ -53,21 +53,25 @@ Public Class CalculateRW
             If record_count > 0 Or record_count2 > 0 Then
 
                 If record_count > 0 And record_count2 > 0 Then
-                    msg = MsgBox("RW Transaction Can't Be Null" & vbCrLf & "RW Collateral Can't Be Null", vbExclamation, "Error")
+                    Response.Write("<script type=""text/javascript"">alert(""RW Transaction Can't Be Null\nRW Collateral Can't Be Null"");</script>")
+                    'msg = MsgBox("RW Transaction Can't Be Null" & vbCrLf & "RW Collateral Can't Be Null", vbExclamation, "Error")
 
                 ElseIf record_count2 > 0 Then
-                    msg = MsgBox("RW Collateral Can't Be Null", vbExclamation, "Error")
+                    Response.Write("<script type=""text/javascript"">alert(""RW Collateral Can't Be Null"");</script>")
+                    'msg = MsgBox("RW Collateral Can't Be Null", vbExclamation, "Error")
                 ElseIf record_count > 0 Then
-                    msg = MsgBox("RW Transaction Can't Be Null", vbExclamation, "Error")
+                    Response.Write("<script type=""text/javascript"">alert(""RW Transaction Can't Be Null"");</script>")
+                    'msg = MsgBox("RW Transaction Can't Be Null", vbExclamation, "Error")
                 End If
 
                 If IsNothing(Request.UrlReferrer) Then
-                    Response.Redirect("/Default.aspx")
+                    Response.Write("<script>window.location.href='/Default.aspx';</script>")
 
                 Else
                     ViewState("RefUrl") = Request.UrlReferrer.ToString()
                     Dim refUrl As Object = ViewState("RefUrl")
-                    Response.Redirect(refUrl.ToString())
+                    'Response.Redirect(refUrl.ToString())
+                    Response.Write("<script>window.location.href='" & refUrl.ToString() & "';</script>")
 
                 End If
             Else
@@ -142,7 +146,8 @@ Public Class CalculateRW
             Loop
 
         Else
-            MsgBox("Can't Calculae RWA.", MsgBoxStyle.Exclamation, "Error")
+            'MsgBox("Can't Calculae RWA.", MsgBoxStyle.Exclamation, "Error")
+            Response.Write("<script type=""text/javascript"">alert(""Can't Calculae RWA."");</script>")
             Exit Sub
         End If
 
@@ -200,8 +205,8 @@ Public Class CalculateRW
 
 
 
-
-        MsgBox("Archive Data Successful")
+        Response.Write("<script type=""text/javascript"">alert(""Archive Data Successful"");</script>")
+        'MsgBox("Archive Data Successful")
     End Sub
 
     Protected Sub CalculateRWA_Click(sender As Object, e As EventArgs) Handles CalculateRWA.Click
@@ -228,8 +233,8 @@ Public Class CalculateRW
         SQLConnect.ExcNonQuery("UPDATE tbl_RWAC_Master SET tbl_RWAC_Master.RWA = ([CEA]+IIF(Adjust_Accrued<>0,Adjust_Accrued,Accrued)-[Allocate_Asset_Amount]-[Specific_Provision]-[RWA_Collateral])*[RW]+[Funding_Allocated_Amount], tbl_RWAC_Master.RWA_No_Collateral = ([CEA]+IIF(Adjust_Accrued<>0,Adjust_Accrued,Accrued)-[Allocate_Asset_Amount]-[Specific_Provision]-[RWA_Collateral])*[RW]+[Funding_Allocated_Amount]" & _
                                 " WHERE (((tbl_RWAC_Master.Calculation_Method)='Comprehensive') And ((tbl_RWAC_Master.[Credit_Exposure])='Derivative'))")
 
-
-        MsgBox("Calculate RWA Successful")
+        Response.Write("<script type=""text/javascript"">alert(""Calculate RWA Successful"");</script>")
+        'MsgBox("Calculate RWA Successful")
 
 
     End Sub

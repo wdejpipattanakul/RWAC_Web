@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class AllocateFunding
 
     '''<summary>
-    '''DropDownList1 control.
+    '''ddlCustID control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlCustID As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''DropDownList2 control.
+    '''ddlCurrency control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList2 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlCurrency As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''Search control.
@@ -41,6 +41,15 @@ Partial Public Class AllocateFunding
     Protected WithEvents Search As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''Clear control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Clear As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''grdTran control.
     '''</summary>
     '''<remarks>
@@ -50,13 +59,31 @@ Partial Public Class AllocateFunding
     Protected WithEvents grdTran As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''TextBox1 control.
+    '''ddlListCurrency control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlListCurrency As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''txtRemainingAmount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRemainingAmount As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtSearch control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtSearch As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''grdTran2 control.
