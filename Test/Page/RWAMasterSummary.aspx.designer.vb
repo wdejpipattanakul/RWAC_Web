@@ -11,41 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class SiteMaster
+Partial Public Class RWAMasterSummary
 
     '''<summary>
-    '''HeadContent control.
+    '''ddlReportDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents HeadContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents ddlReportDate As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''LoginStatus1 control.
+    '''chtSummary control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LoginStatus1 As Global.System.Web.UI.WebControls.LoginStatus
+    Protected WithEvents chtSummary As Global.System.Web.UI.DataVisualization.Charting.Chart
 
     '''<summary>
-    '''FeaturedContent control.
+    '''chtSummary2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents FeaturedContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
-
-    '''<summary>
-    '''MainContent control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents MainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents chtSummary2 As Global.System.Web.UI.DataVisualization.Charting.Chart
 End Class

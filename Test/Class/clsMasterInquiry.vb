@@ -14,4 +14,26 @@ Public Class clsMasterInquiry
         ds = toSqlDB(cmd)
         Return ds
     End Function
+
+    Public Overloads Shared Function getRWAReportSummaryExposure(ByVal aod As String) As DataSet
+        Dim ds As New DataSet
+        Dim cmd As String
+        cmd = " SELECT Credit_Exposure, COUNT(Credit_Exposure) AS NumberofTrans "
+        cmd += "  FROM tbl_RWAC_History "
+        cmd += " WHERE CONVERT(nvarchar, AOD, 103) = '" & aod & "'"
+        cmd += " GROUP BY Credit_Exposure "
+        ds = toSqlDB(cmd)
+        Return ds
+    End Function
+
+    Public Overloads Shared Function getRWAReportSummaryRW(ByVal aod As String) As DataSet
+        Dim ds As New DataSet
+        Dim cmd As String
+        cmd = " SELECT RW, COUNT(RW) AS NumberofTrans "
+        cmd += "  FROM tbl_RWAC_History "
+        cmd += " WHERE CONVERT(nvarchar, AOD, 103) = '" & aod & "'"
+        cmd += " GROUP BY RW "
+        ds = toSqlDB(cmd)
+        Return ds
+    End Function
 End Class

@@ -48,6 +48,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.DynamicData" />
@@ -151,9 +152,12 @@
     <Content Include="Page\CalculateRW.aspx" />
     <Content Include="Page\CreditExposureInquiry.aspx" />
     <Content Include="Page\CreditRiskInquiry.aspx" />
+    <Content Include="Page\CreditRiskClassification.aspx" />
     <Content Include="Page\CRMInquiry.aspx" />
     <Content Include="Page\CRSReportInquiry.aspx" />
+    <Content Include="Page\RWAMasterSummary.aspx" />
     <Content Include="Page\RWAMasterInquiry.aspx" />
+    <Content Include="Page\CRMAllocation.aspx" />
     <Content Include="Page\RWAReportInquiry.aspx" />
     <Content Include="Page\RWCRMCalculation.aspx" />
     <Content Include="Page\RWDebtCalculation.aspx" />
@@ -208,7 +212,9 @@
     </Compile>
     <Compile Include="Class\clsCalculateRW.vb" />
     <Compile Include="Class\clsCreditExposureInquiry.vb" />
+    <Compile Include="Class\clsCreditRiskClassification.vb" />
     <Compile Include="Class\clsCreditRiskInquiry.vb" />
+    <Compile Include="Class\clsCRMAllocation.vb" />
     <Compile Include="Class\clsCRMInquiry.vb" />
     <Compile Include="Class\clsCRSReportInquiry.vb" />
     <Compile Include="Class\clsMasterInquiry.vb" />
@@ -278,6 +284,13 @@
       <DependentUpon>CreditRiskInquiry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Page\CreditRiskClassification.aspx.designer.vb">
+      <DependentUpon>CreditRiskClassification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CreditRiskClassification.aspx.vb">
+      <DependentUpon>CreditRiskClassification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Page\CRMInquiry.aspx.designer.vb">
       <DependentUpon>CRMInquiry.aspx</DependentUpon>
     </Compile>
@@ -292,12 +305,26 @@
       <DependentUpon>CRSReportInquiry.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Page\RWAMasterSummary.aspx.designer.vb">
+      <DependentUpon>RWAMasterSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\RWAMasterSummary.aspx.vb">
+      <DependentUpon>RWAMasterSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Page\RWAMasterInquiry.aspx.designer.vb">
       <DependentUpon>RWAMasterInquiry.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\RWAMasterInquiry.aspx.vb">
       <DependentUpon>RWAMasterInquiry.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Page\CRMAllocation.aspx.designer.vb">
+      <DependentUpon>CRMAllocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CRMAllocation.aspx.vb">
+      <DependentUpon>CRMAllocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Page\RWAReportInquiry.aspx.designer.vb">
       <DependentUpon>RWAReportInquiry.aspx</DependentUpon>
@@ -360,6 +387,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TempImageFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
