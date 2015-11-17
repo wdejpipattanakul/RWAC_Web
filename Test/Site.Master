@@ -33,7 +33,7 @@
                 </div>
                 <div class="navbar-collapse collapse" style="font-size:12px">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
+                        <%--<li><a runat="server" href="~/">Home</a></li>--%>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Generate Master
                             <span class="caret"></span></a>
@@ -48,7 +48,7 @@
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="font-size:12px">
                                 <li><a runat="server" href="#">Asset Manager</a></li>
-                                <li><a runat="server" href="#">Credit Risk Manager</a></li>
+                                <li><a runat="server" href="~/Page/CreditRiskClassification.aspx">Credit Risk Manager</a></li>
                                 <li><a runat="server" href="#">ECAI Mapping</a></li>
                             </ul>
                         </li>
@@ -63,12 +63,20 @@
                                 <li><a runat="server" href="~/Page/RWCRMCalculation.aspx">Calculate CRM RW</a></li>
                             </ul>
                         </li>
-                        <li><a runat="server" href="~/Page/CalculateRW.aspx">Calculate RWA</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">RWA Calculation
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="font-size:12px">
+                                <li><a runat="server" href="~/Page/CRMAllocation.aspx">Allocate CRM</a></li>
+                                <li><a runat="server" href="~/Page/CalculateRW.aspx">Calculate RWA</a></li>
+                            </ul>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="font-size:12px">
                                 <li><a runat="server" href="~/Page/RWAMasterInquiry.aspx">RWA Master Inquiry</a></li>
+                                <li><a runat="server" href="~/Page/RWAMasterSummary.aspx">RWA Master Summary</a></li>
                                 <li><a runat="server" href="~/Page/CRSReportInquiry.aspx">CRS Report</a></li>
                                 <li><a runat="server" href="~/Page/RWAReportInquiry.aspx">RWA Report</a></li>
                             </ul>
