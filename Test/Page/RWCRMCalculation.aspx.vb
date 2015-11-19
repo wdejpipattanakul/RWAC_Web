@@ -147,7 +147,7 @@ Public Class RWCRMCalculation
             objDataReader.Close()
             objCommand.Dispose()
         Else
-            ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Incomplete Data Can't Calculate RW \nPlease Mapping ECAI_Name')</script>")
+            Response.Write("<script type=""text/javascript"">alert(""Incomplete Data Can't Calculate RW\nPlease Mapping ECAI_Name"");</script>")
             'MsgBox("Incomplete Data Can't Calculate RW" & vbNewLine & "Please Mapping ECAI_Name", vbCritical)
             objDataReader.Close()
             objCommand.Dispose()
@@ -227,14 +227,14 @@ Public Class RWCRMCalculation
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR') And ISNULL(Rating_Value,'') <> '' And Term = 'Long Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
 
                         ElseIf LS_Term = "Short Term" Then
                             'strSQL2 = "SELECT RWA_Counter_Party_Name,ECAI_Name, Trim(Replace(Replace(Replace(Replace(IIF(tbl_ECAI_Rating.Rating_Value & '' <>'', tbl_ECAI_Rating.Rating_Value ,''),'/*',''),'*-',''),'*+',''),'*','')) AS Rating_Value FROM Q_Mapping_CounterPartyName2 " & _
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR','B','C','D') And ISNULL(Rating_Value,'') <> '' And Term = 'Short Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
                         End If
 
                         objCommand2 = New SqlCommand(strSQL2, oconn2)
@@ -492,14 +492,14 @@ Public Class RWCRMCalculation
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR') And ISNULL(Rating_Value,'') <> '' And Term = 'Long Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Long Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
 
                         ElseIf LS_Term = "Short Term" Then
                             'strSQL2 = "SELECT RWA_Counter_Party_Name,ECAI_Name, Trim(Replace(Replace(Replace(Replace(IIF(tbl_ECAI_Rating.Rating_Value & '' <>'', tbl_ECAI_Rating.Rating_Value ,''),'/*',''),'*-',''),'*+',''),'*','')) AS Rating_Value FROM Q_Mapping_CounterPartyName2 " & _
                             '          " WHERE RWA_Counter_Party_Name = '" & objDataReader.Item("Cust_Name") & "' And Rating_Value & '' NOT IN('SD','WD','WR','RD','NR','B','C','D') And ISNULL(Rating_Value,'') <> '' And Term = 'Short Term' And Currency_Type = '" & LF_Currency & "'"
                             strSQL2 = "SELECT tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name, Replace(tbl_ECAI_Rating.ECAI_Name,'''','') AS ECAI_Name, RTrim(LTrim(Replace(Replace(Replace(Replace(ISNULL(tbl_ECAI_Rating.Rating_Value,''),'/*',''),'*-',''),'*+',''),'*',''))) AS Rating_Value"
                             strSQL2 += " FROM (tbl_ECAI_Rating INNER JOIN tbl_Mapping_CounterPartyName ON tbl_ECAI_Rating.Counter_Party_Name = tbl_Mapping_CounterPartyName.ECAI_Counter_Party_Name) INNER JOIN tbl_BOT_Rating_Type ON  (ISNULL(tbl_BOT_Rating_Type.ECAI_Value,'') = ISNULL(tbl_ECAI_Rating.Rating_Value,'')) AND (tbl_ECAI_Rating.ECAI_Name = tbl_BOT_Rating_Type.ECAI_Name) AND (tbl_ECAI_Rating.Term = tbl_BOT_Rating_Type.Term)"
-                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (([tbl_ECAI_Rating].[Rating_Value] + '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
+                            strSQL2 += " WHERE tbl_Mapping_CounterPartyName.RWA_Counter_Party_Name = '" & objDataReader.Item("Collateral_Name") & "' And (ISNULL([tbl_ECAI_Rating].[Rating_Value] , '') Not In ('SD','WD','WR','RD','NR','B','C','D')) And ISNULL(Rating_Value,'') <> '' And tbl_ECAI_Rating.Term = 'Short Term' And tbl_ECAI_Rating.Currency_Type = '" & LF_Currency & "'"
                         End If
 
                         objCommand2 = New SqlCommand(strSQL2, oconn2)
@@ -698,21 +698,21 @@ Public Class RWCRMCalculation
         'Update CRM_Hc_Value = 0 Not Bond
         SQLConnect.ExcNonQuery("UPDATE tbl_CRM_Master " & _
                      " SET CRM_Hc_Value = 0" & _
-                     " WHERE Collateral_Type <> 'Stock' And RW_Collateral & '' <> ''")
+                     " WHERE Collateral_Type <> 'Stock' And ISNULL(RW_Collateral , '') <> ''")
 
         'Update RW No Mapping Case
 
         SQLConnect.ExcNonQuery("UPDATE tbl_CRM_Master" & _
                      " SET RW_Collateral = 1, ECAI_Name = 'NO RATING'" & _
-                     " WHERE Credit_Risk_Subtype IN('1.1','1.2','2.1.1','2.1.2','2.1.3','4','5') And (RW_Collateral & '' = '' OR ECAI_Value & '' ='')")
+                     " WHERE Credit_Risk_Subtype IN('1.1','1.2','2.1.1','2.1.2','2.1.3','4','5') And (ISNULL(RW_Collateral , '') OR ISNULL(ECAI_Value,'') = '')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_CRM_Master" & _
                      " SET RW_Collateral = 0.5, ECAI_Name = 'NO RATING'" & _
-                     " WHERE Credit_Risk_Subtype IN('3.1','3.2') And (RW_Collateral & '' = '' OR ECAI_Value & '' ='')")
+                     " WHERE Credit_Risk_Subtype IN('3.1','3.2') And (ISNULL(RW_Collateral , '') OR ISNULL(ECAI_Value,'') = '')")
 
         SQLConnect.ExcNonQuery("UPDATE tbl_CRM_Master" & _
                      " SET RW_Collateral = 1, ECAI_Name = 'NO RATING'" & _
-                     " WHERE Credit_Risk_Subtype IN('6') And (RW_Collateral & '' = '' OR ECAI_Value & '' ='')")
+                     " WHERE Credit_Risk_Subtype IN('6') And (ISNULL(RW_Collateral , '') OR ISNULL(ECAI_Value,'') = '')")
 
 
 
@@ -746,8 +746,7 @@ Public Class RWCRMCalculation
 
 
         BindData()
-
-        ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Re-Calculate RW Successfully')</script>")
+        Response.Write("<script type=""text/javascript"">alert(""Re-Calculate RW Successful"");</script>")
         'MsgBox("Re-Calculate RW Successful")
 
     End Sub

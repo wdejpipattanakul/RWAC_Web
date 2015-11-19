@@ -39,7 +39,7 @@
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="font-size:12px">
                                 <li><a runat="server" href="#">Import Data Source</a></li>
-                                <li><a runat="server" href="#">Inquiry Data Source</a></li>
+                                <li><a runat="server" href="~/Page/DataInquiry.aspx">Inquiry Data Source</a></li>
                                 <li><a runat="server" href="#">Generate Master Data</a></li>
                             </ul>
                         </li>
@@ -47,9 +47,9 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer Manager
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu" style="font-size:12px">
-                                <li><a runat="server" href="#">Asset Manager</a></li>
+                                <li><a runat="server" href="~/Page/AssetManager.aspx">Asset Manager</a></li>
                                 <li><a runat="server" href="~/Page/CreditRiskClassification.aspx">Credit Risk Manager</a></li>
-                                <li><a runat="server" href="#">ECAI Mapping</a></li>
+                                <li><a runat="server" href="~/Page/EcaiMapping.aspx">ECAI Mapping</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -58,6 +58,7 @@
                             <ul class="dropdown-menu" style="font-size:12px">
                                 <li><a runat="server" href="~/Page/CreditExposureInquiry.aspx">Classification Credit Exposure</a></li>
                                 <li><a runat="server" href="~/Page/CreditRiskInquiry.aspx">ClassificationCredit Risk</a></li>
+                                <li><a runat="server" href="~/Page/AllocateFunding.aspx">Funding Allocation</a></li>
                                 <li><a runat="server" href="~/Page/RWDebtCalculation.aspx">Calculate Transaction RW</a></li>
                                 <li><a runat="server" href="~/Page/CRMInquiry.aspx">CRM Management</a></li>
                                 <li><a runat="server" href="~/Page/RWCRMCalculation.aspx">Calculate CRM RW</a></li>

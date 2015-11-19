@@ -11,16 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CreditExposureInquiry
+Partial Public Class DataInquiryTest
 
     '''<summary>
-    '''UpdateNetting control.
+    '''ddlTableName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents UpdateNetting As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents ddlTableName As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''grdTran control.

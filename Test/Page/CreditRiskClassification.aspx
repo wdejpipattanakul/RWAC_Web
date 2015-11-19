@@ -43,16 +43,5 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <p style="padding-top:5px">CRM Transaction</p>
-            </div>
-            <div class="col-sm-10" style="font-size:xx-small">
-                <asp:Button ID="btnCAll" runat="server" Text="ALL" class="btn btn-primary" Width="150px" />
-                <asp:Button ID="btnCOnbal" runat="server" Text="On-bal Netting" class="btn btn-primary" Width="150px" />
-                <asp:Button ID="btnCFinan" runat="server" Text="Financial" class="btn btn-primary" Width="150px" />
-                <asp:Button ID="btnCGuara" runat="server" Text="Guarantee" class="btn btn-primary" Width="150px" />
-            </div>
-        </div>
     </div>
 </asp:Content>

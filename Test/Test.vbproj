@@ -149,12 +149,17 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Login.aspx" />
+    <Content Include="Page\AllocateFunding.aspx" />
+    <Content Include="Page\AssetManager.aspx" />
+    <Content Include="Page\AssetManagerCollateral.aspx" />
     <Content Include="Page\CalculateRW.aspx" />
     <Content Include="Page\CreditExposureInquiry.aspx" />
     <Content Include="Page\CreditRiskInquiry.aspx" />
     <Content Include="Page\CreditRiskClassification.aspx" />
     <Content Include="Page\CRMInquiry.aspx" />
     <Content Include="Page\CRSReportInquiry.aspx" />
+    <Content Include="Page\DataInquiry.aspx" />
+    <Content Include="Page\EcaiMapping.aspx" />
     <Content Include="Page\RWAMasterSummary.aspx" />
     <Content Include="Page\RWAMasterInquiry.aspx" />
     <Content Include="Page\CRMAllocation.aspx" />
@@ -210,6 +215,8 @@
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Class\clsAllocateFunding.vb" />
+    <Compile Include="Class\clsAssetManager.vb" />
     <Compile Include="Class\clsCalculateRW.vb" />
     <Compile Include="Class\clsCreditExposureInquiry.vb" />
     <Compile Include="Class\clsCreditRiskClassification.vb" />
@@ -217,6 +224,8 @@
     <Compile Include="Class\clsCRMAllocation.vb" />
     <Compile Include="Class\clsCRMInquiry.vb" />
     <Compile Include="Class\clsCRSReportInquiry.vb" />
+    <Compile Include="Class\clsDataInquiry.vb" />
+    <Compile Include="Class\clsEcaiMapping.vb" />
     <Compile Include="Class\clsMasterInquiry.vb" />
     <Compile Include="Class\clsRWAReportInquiry.vb" />
     <Compile Include="Class\clsRWCRMCalculation.vb" />
@@ -263,6 +272,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Page\AllocateFunding.aspx.designer.vb">
+      <DependentUpon>AllocateFunding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\AllocateFunding.aspx.vb">
+      <DependentUpon>AllocateFunding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\AssetManager.aspx.designer.vb">
+      <DependentUpon>AssetManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\AssetManager.aspx.vb">
+      <DependentUpon>AssetManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\AssetManagerCollateral.aspx.designer.vb">
+      <DependentUpon>AssetManagerCollateral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\AssetManagerCollateral.aspx.vb">
+      <DependentUpon>AssetManagerCollateral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Page\CalculateRW.aspx.designer.vb">
       <DependentUpon>CalculateRW.aspx</DependentUpon>
     </Compile>
@@ -303,6 +333,20 @@
     </Compile>
     <Compile Include="Page\CRSReportInquiry.aspx.vb">
       <DependentUpon>CRSReportInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataInquiry.aspx.designer.vb">
+      <DependentUpon>DataInquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataInquiry.aspx.vb">
+      <DependentUpon>DataInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\EcaiMapping.aspx.designer.vb">
+      <DependentUpon>EcaiMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\EcaiMapping.aspx.vb">
+      <DependentUpon>EcaiMapping.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Page\RWAMasterSummary.aspx.designer.vb">
